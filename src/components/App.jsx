@@ -27,7 +27,7 @@ export const App = () => {
     const isRepeatedContact = contacts.find(contact => contact.name === name);
 
     if (isRepeatedContact) {
-      alert(`${name} is already in contacts`);
+      alert(`${name} is already in contacts!`);
     } else {
       setContacts(prevContacts => [
         ...prevContacts,
