@@ -6,16 +6,10 @@ import { nanoid } from 'nanoid';
 import Filter from './FIlter/Filter';
 
 export const App = () => {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem('contacts')) || []
+  );
   const [filter, setFilter] = useState('');
-
-  useEffect(() => {
-    const savedContacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(savedContacts);
-    if (parsedContacts) {
-      setContacts(parsedContacts);
-    }
-  }, []);
 
   useEffect(() => {
     if (contacts.length !== 0) {
